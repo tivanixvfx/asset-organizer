@@ -1,0 +1,748 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
+
+  .ao-wrap {
+    background: #080B10;
+    color: #E8EDF5;
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .ao-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── HERO ── */
+  .ao-hero {
+    padding: 80px 40px;
+    background: #080B10;
+    background-image:
+      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    position: relative;
+  }
+
+  .ao-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #00D4FF;
+    border: 1px solid rgba(0,212,255,0.2);
+    background: rgba(0,212,255,0.06);
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 28px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-tag-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #00D4FF;
+    box-shadow: 0 0 8px #00D4FF;
+    display: inline-block;
+    animation: ao-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ao-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  .ao-h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: 58px;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    color: #E8EDF5;
+  }
+
+  .ao-h1 span { color: #00D4FF; }
+
+  .ao-sub {
+    font-size: 16px;
+    color: #7A8899;
+    max-width: 560px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .ao-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #00D4FF;
+    color: #000;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 30px rgba(0,212,255,0.25);
+  }
+
+  .ao-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: #00FFB2;
+  }
+
+  .ao-price-note {
+    font-size: 13px;
+    color: #7A8899;
+    font-family: 'DM Mono', monospace;
+    margin-left: 8px;
+  }
+
+  /* ── VIDEO ── */
+  .ao-video-wrap {
+    margin: 0 40px 60px;
+    position: relative;
+    background: #0F1620;
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ao-video-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .ao-play {
+    width: 72px; height: 72px;
+    border: 2px solid #00D4FF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00D4FF;
+    font-size: 22px;
+  }
+
+  .ao-video-label {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 40px 0;
+  }
+
+  .ao-video-label span {
+    font-size: 12px;
+    color: #7A8899;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-video-label .ao-dur { color: #00D4FF; }
+
+  /* ── STATS ── */
+  .ao-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(0,212,255,0.12);
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 60px 40px;
+  }
+
+  .ao-stat {
+    background: #0F1620;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .ao-stat-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: #00D4FF;
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .ao-stat-label {
+    font-size: 12px;
+    color: #7A8899;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── SECTION HEADER ── */
+  .ao-section {
+    padding: 20px 40px 60px;
+  }
+
+  .ao-section-label {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #00D4FF;
+    margin-bottom: 12px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    color: #E8EDF5;
+  }
+
+  .ao-section-title em {
+    font-style: normal;
+    color: #00D4FF;
+  }
+
+  .ao-section-desc {
+    color: #7A8899;
+    max-width: 560px;
+    margin-bottom: 48px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── WORKFLOW ── */
+  .ao-workflow {
+    background: #0D1117;
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 12px;
+    padding: 48px;
+    margin-bottom: 60px;
+  }
+
+  .ao-workflow-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 36px;
+    text-align: center;
+    color: #E8EDF5;
+  }
+
+  .ao-workflow-title em { font-style: normal; color: #00D4FF; }
+
+  .ao-step {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0,212,255,0.08);
+  }
+
+  .ao-step:last-child { border-bottom: none; }
+
+  .ao-step-num {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 8px;
+    background: rgba(0,212,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    color: #00D4FF;
+    flex-shrink: 0;
+  }
+
+  .ao-step h4 {
+    font-family: 'Syne', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #E8EDF5;
+  }
+
+  .ao-step p {
+    color: #7A8899;
+    font-size: 13px;
+    line-height: 1.7;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── FEATURES ── */
+  .ao-features { padding: 0 40px 60px; }
+
+  .ao-feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 48px 0;
+    border-top: 1px solid rgba(0,212,255,0.08);
+  }
+
+  .ao-feature:last-child { border-bottom: 1px solid rgba(0,212,255,0.08); }
+
+  .ao-feature.rev { direction: rtl; }
+  .ao-feature.rev > * { direction: ltr; }
+
+  .ao-feat-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: #00D4FF;
+    letter-spacing: 0.15em;
+    margin-bottom: 8px;
+    opacity: 0.7;
+  }
+
+  .ao-feat-sub {
+    font-size: 11px;
+    color: #00FFB2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-feat-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    color: #E8EDF5;
+  }
+
+  .ao-feat-desc {
+    color: #7A8899;
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── MEDIA BOX ── */
+  .ao-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: #111820;
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .ao-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ao-media-badge {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: rgba(0,0,0,0.7);
+    border: 1px solid rgba(0,212,255,0.2);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #00D4FF;
+    text-transform: uppercase;
+    font-family: 'DM Mono', monospace;
+    backdrop-filter: blur(8px);
+  }
+
+  /* ── SPECS ── */
+  .ao-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(0,212,255,0.12);
+    border: 1px solid rgba(0,212,255,0.12);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 40px 60px;
+  }
+
+  .ao-spec {
+    background: #0F1620;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .ao-spec-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .ao-spec h5 {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 2px;
+    color: #E8EDF5;
+  }
+
+  .ao-spec p {
+    font-size: 12px;
+    color: #7A8899;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── CTA ── */
+  .ao-cta {
+    text-align: center;
+    padding: 80px 40px;
+    border-top: 1px solid rgba(0,212,255,0.12);
+    position: relative;
+    background: #080B10;
+  }
+
+  .ao-cta::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 50%;
+    transform: translateX(-50%);
+    width: 200px; height: 1px;
+    background: #00D4FF;
+    box-shadow: 0 0 20px #00D4FF;
+  }
+
+  .ao-cta h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    color: #E8EDF5;
+  }
+
+  .ao-cta p {
+    color: #7A8899;
+    margin-bottom: 36px;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-cta-price {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: #00FFB2;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .ao-cta-note {
+    font-size: 13px;
+    color: #7A8899;
+    margin-bottom: 36px;
+    display: block;
+    font-family: 'DM Mono', monospace;
+  }
+
+  .ao-divider {
+    height: 1px;
+    background: rgba(0,212,255,0.08);
+    margin: 0 40px;
+  }
+</style>
+
+<div class="ao-wrap">
+
+  <!-- HERO -->
+  <div class="ao-hero">
+    <div class="ao-tag"><span class="ao-tag-dot"></span> Blender Add-on &nbsp;·&nbsp; Object Tools</div>
+    <div class="ao-h1">
+      Turn Asset Chaos<br>
+      Into a <span>Clean Grid</span><br>
+      Instantly.
+    </div>
+    <p class="ao-sub">Drop any 3D asset pack into Blender. Asset Organizer arranges every object into a perfect presentation grid — sorted, scaled, and ground-aligned in one click.</p>
+    <div class="ao-actions">
+      <div class="ao-price">$9.99 <span class="ao-price-note">one-time · free updates</span></div>
+    </div>
+  </div>
+
+  <!-- VIDEO PLACEHOLDER -->
+  <div class="ao-video-wrap">
+    <!--
+      SWAP THIS FOR YOUR VIDEO:
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;">
+        <source src="YOUR_VIDEO_URL.mp4" type="video/mp4">
+      </video>
+    -->
+    <div class="ao-video-placeholder">
+      <div class="ao-play">▶</div>
+      <p style="color:#7A8899;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-family:'DM Mono',monospace;">Demo Video — Coming Soon</p>
+    </div>
+  </div>
+  <div class="ao-video-label">
+    <span>Full Workflow Demo</span>
+    <span class="ao-dur">~45s</span>
+  </div>
+
+  <!-- STATS -->
+  <div class="ao-stats">
+    <div class="ao-stat">
+      <span class="ao-stat-num">6</span>
+      <span class="ao-stat-label">Sort Modes</span>
+    </div>
+    <div class="ao-stat">
+      <span class="ao-stat-num">1-Click</span>
+      <span class="ao-stat-label">Full Scene Layout</span>
+    </div>
+    <div class="ao-stat">
+      <span class="ao-stat-num">v3.0+</span>
+      <span class="ao-stat-label">Blender Support</span>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="ao-section">
+    <div class="ao-section-label">The Problem</div>
+    <div class="ao-section-title">You bought the pack.<br>Now it's a <em>disaster.</em></div>
+    <p class="ao-section-desc">Every 3D artist knows the moment. You import 50 assets from a KitBash pack and they pile up at the origin — overlapping, wrong scale, random rotations. Asset Organizer fixes that in one click.</p>
+
+    <div class="ao-workflow">
+      <div class="ao-workflow-title">A <em>Simple</em> Workflow</div>
+      <div class="ao-step">
+        <div class="ao-step-num">1</div>
+        <div>
+          <h4>Import Your Assets</h4>
+          <p>Drop any asset pack into Blender. KitBash, Fab, Poly Haven — any collection of mesh objects.</p>
+        </div>
+      </div>
+      <div class="ao-step">
+        <div class="ao-step-num">2</div>
+        <div>
+          <h4>Configure the Grid</h4>
+          <p>Set columns, gap size, sort order, and toggle normalize scale — all in one clean sidebar panel.</p>
+        </div>
+      </div>
+      <div class="ao-step">
+        <div class="ao-step-num">3</div>
+        <div>
+          <h4>Hit Organize</h4>
+          <p>Every object snaps to a perfect grid, ground-aligned, sorted exactly how you specified.</p>
+        </div>
+      </div>
+      <div class="ao-step">
+        <div class="ao-step-num">4</div>
+        <div>
+          <h4>Fit Camera &amp; Screenshot</h4>
+          <p>One more click frames the entire grid in your camera. Presentation-ready in seconds.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ao-divider"></div>
+
+  <!-- FEATURES -->
+  <div class="ao-section" style="padding-bottom:0;">
+    <div class="ao-section-label">Key Features</div>
+    <div class="ao-section-title">Everything you need.<br><em>Nothing you don't.</em></div>
+  </div>
+
+  <div class="ao-features">
+
+    <!-- 01 -->
+    <div class="ao-feature">
+      <div>
+        <div class="ao-feat-num">01 / 07</div>
+        <div class="ao-feat-sub">Instant Order</div>
+        <div class="ao-feat-title">Before &amp; After — One Click</div>
+        <p class="ao-feat-desc">Drop any asset pack. One click turns complete chaos into a perfect presentation grid. Works on any number of objects, any scene.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/MyCZv5D.gif" alt="Before and after organizing">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="ao-feature rev">
+      <div>
+        <div class="ao-feat-num">02 / 07</div>
+        <div class="ao-feat-sub">Sort Your Way</div>
+        <div class="ao-feat-title">6 Sort Modes</div>
+        <p class="ao-feat-desc">By name, size, or vertex count — ascending or descending. Organize exactly how your pipeline needs it.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/02U6jVn.gif" alt="Sort modes">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="ao-feature">
+      <div>
+        <div class="ao-feat-num">03 / 07</div>
+        <div class="ao-feat-sub">Uniform Scale</div>
+        <div class="ao-feat-title">Normalize Scale</div>
+        <p class="ao-feat-desc">Mixed sizes? A screw next to a building? Normalize makes every asset the same height so you can actually compare them fairly.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/FAnrKoI.gif" alt="Normalize scale">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="ao-feature rev">
+      <div>
+        <div class="ao-feat-num">04 / 07</div>
+        <div class="ao-feat-sub">Smart Exclusion</div>
+        <div class="ao-feat-title">Exclude by Name</div>
+        <p class="ao-feat-desc">Keep your floor, ground, and base meshes exactly where they are. Type any keywords — only the assets you want get moved.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/po2aPtP.gif" alt="Exclude filter">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="ao-feature">
+      <div>
+        <div class="ao-feat-num">05 / 07</div>
+        <div class="ao-feat-sub">Natural Variation</div>
+        <div class="ao-feat-title">Random Z Rotation</div>
+        <p class="ao-feat-desc">A subtle random Z rotation breaks the robotic grid. Looks human, not automated. Fully controllable max angle.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/XsQ8qt6.gif" alt="Random rotation">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="ao-feature rev">
+      <div>
+        <div class="ao-feat-num">06 / 07</div>
+        <div class="ao-feat-sub">Perfect Frame</div>
+        <div class="ao-feat-title">Fit Camera to Grid</div>
+        <p class="ao-feat-desc">One click frames your entire grid perfectly in camera view. Screenshot-ready, presentation-ready, portfolio-ready.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/3Fmam7o.gif" alt="Fit camera">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="ao-feature">
+      <div>
+        <div class="ao-feat-num">07 / 07</div>
+        <div class="ao-feat-sub">Full Control</div>
+        <div class="ao-feat-title">Clean Panel Overview</div>
+        <p class="ao-feat-desc">Every setting in one clean sidebar panel. No menus, no searching, no wasted time.</p>
+      </div>
+      <div class="ao-media">
+        <img src="https://i.imgur.com/yASikZs.gif" alt="Panel overview">
+        <div class="ao-media-badge">GIF</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ao-divider"></div>
+
+  <!-- SPECS -->
+  <div class="ao-section">
+    <div class="ao-section-label">Compatibility</div>
+    <div class="ao-section-title">Built for <em>every</em> pipeline.</div>
+  </div>
+
+  <div class="ao-specs">
+    <div class="ao-spec">
+      <div class="ao-spec-icon">⚡</div>
+      <div>
+        <h5>Blender 3.0 — 5.x</h5>
+        <p>Full version support</p>
+      </div>
+    </div>
+    <div class="ao-spec">
+      <div class="ao-spec-icon">🐍</div>
+      <div>
+        <h5>Pure Python — No Dependencies</h5>
+        <p>Installs like any standard addon</p>
+      </div>
+    </div>
+    <div class="ao-spec">
+      <div class="ao-spec-icon">↩</div>
+      <div>
+        <h5>Full Undo Support</h5>
+        <p>Ctrl+Z works on everything</p>
+      </div>
+    </div>
+    <div class="ao-spec">
+      <div class="ao-spec-icon">🔄</div>
+      <div>
+        <h5>Free Updates Forever</h5>
+        <p>One-time purchase</p>
+      </div>
+    </div>
+    <div class="ao-spec">
+      <div class="ao-spec-icon">🎯</div>
+      <div>
+        <h5>Selection or Full Scene</h5>
+        <p>Organize all or selected only</p>
+      </div>
+    </div>
+    <div class="ao-spec">
+      <div class="ao-spec-icon">📐</div>
+      <div>
+        <h5>Correct Ground Align</h5>
+        <p>Bottom of mesh — not origin</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="ao-cta">
+    <h2>Stop wasting time<br>on manual placement.</h2>
+    <p>Every 3D artist needs this. It pays for itself the first time you use it.</p>
+    <span class="ao-cta-price">$9.99</span>
+    <span class="ao-cta-note">One-time purchase · Free updates forever · Instant download</span>
+  </div>
+
+</div>
